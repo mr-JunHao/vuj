@@ -1,7 +1,7 @@
-const hello = `hello word~`;
-const elementH1 = document.createElement('h1');
-import './index.css'
+import Vue from 'vue'
+import App from './App'
 
-['jun','hao'].map(val => {console.log(val)});
-elementH1.innerHTML = `${hello}`;
-document.body.appendChild(elementH1);
+new Vue({
+    el: '#app',
+    render: h => h(App)
+})

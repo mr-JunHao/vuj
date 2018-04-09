@@ -18,11 +18,21 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.vue', '.css'],
     alias: {
-
+      // 'vue': 'vue/dist/vue.js'
     }
   },
   module: {
-    rules: [{
+    rules: [
+      {
+        test: /\.vue$/,
+        use: {
+          loader: 'vue-loader',
+          options: {
+            extensions: true
+          }
+        }
+      },
+      {
         test: /\.js$/,
         exclude: [/node_modules/],
         use: {

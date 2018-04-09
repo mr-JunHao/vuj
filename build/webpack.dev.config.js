@@ -10,7 +10,21 @@ module.exports = merge(webpackBaseConfig, {
   output: {
     publicPath: '/',
   },
+  devServer: {
+    contentBase: path.resolve(__dirname, "../src"),
+    compress: true,
+    hot: true,
+    port: 3000,
+    host: "0.0.0.0",
+    stats: "errors-only",
+    proxy: {
+      
+    },
+    clientLogLevel: "warning"
+  },
   plugins: [
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"development"'
