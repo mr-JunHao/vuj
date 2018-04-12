@@ -6,10 +6,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const rootPath = path.resolve(__dirname, '..');
 
+function resolve(dir) {
+  return path.resolve(__dirname, '..', dir)
+}
+
 module.exports = {
-  context: path.join(rootPath, 'src'),
+  context: resolve('examples'),
   entry: {
-    app: './main.js'
+    vendor: ['vue', 'vue-router', 'axios'],
+    vj: './src/index.js'
   },
   output: {
     filename: '[name].js',
@@ -73,7 +78,8 @@ module.exports = {
       filename: process.env.NODE_ENV === 'production' ? '[name]_[chunkhash:8].css' : '[name].css'
     }),
     new HtmlWebpackPlugin({
-      template: path.join(rootPath, 'index.html'),
+      chunks: ['vendor', 'vj'],
+      template: resolve('./examples/src/index.tpl'),
       filename: 'index.html',
       inject: true
     })
