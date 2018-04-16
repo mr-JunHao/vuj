@@ -2,6 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import index from '../pages/index'
 import hello from '../pages/hello'
+//docs
+import helloMD from '../markdown/hello.md'
+
 Vue.use(Router)
 export default new Router({
     routes: [
@@ -17,7 +20,8 @@ export default new Router({
         },
         {
             path: '/docs/hello',
-            component: require('../markdown/hello.md')
+            component: helloMD,
+            name: ''
         }
     ]
 })
