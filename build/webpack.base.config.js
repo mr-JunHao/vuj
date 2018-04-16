@@ -18,12 +18,18 @@ module.exports = {
   },
   output: {
     filename: '[name].js',
-    path: path.join(rootPath, 'dist')
+    path: path.join(rootPath, 'dist'),
+    publicPath: '/'
   },
   resolve: {
-    extensions: ['.js', '.vue', '.css'],
+    extensions: ['.js', '.vue', '.json'],
     alias: {
-      'vue$': 'vue/dist/vue.js'
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': resolve('src'),
+      'src': resolve('src'),
+      'packages': resolve('packages'),
+      'lib': resolve('lib'),
+      'components': resolve('examples/src/components')
     }
   },
   module: {
@@ -33,7 +39,10 @@ module.exports = {
         use: {
           loader: 'vue-loader',
           options: {
-            extensions: true
+            loaders: {
+              css: ['vue-style-loader','css-loader','postcss-loader']
+            }
+            // extractCSS: true,
           }
         }
       },
@@ -46,9 +55,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          use: ['css-loader']
-        })
+        use: ['vue-style-loader','css-loader','postcss-loader']
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -75,11 +82,12 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin({
+      
       filename: process.env.NODE_ENV === 'production' ? '[name]_[chunkhash:8].css' : '[name].css'
     }),
     new HtmlWebpackPlugin({
       chunks: ['vendor', 'vj'],
-      template: resolve('./examples/src/index.tpl'),
+      template: resolve('examples/src/index.tpl'),
       filename: 'index.html',
       inject: true
     })

@@ -9,8 +9,19 @@ module.exports = merge(webpackBaseConfig, {
   devtool: 'source-map',
   mode: 'production',
   output: {
-    // publicPath: '/',
+    publicPath: '/',
+    filename: './lib/[name].js',
+    library: 'vj',
+    libraryTarget: 'umd',
     chunkFilename: '[name]_[chunkhash:8].js'
+  },
+  externals: {
+    vue: {
+      root: 'Vue',
+      commonjs: 'vue',
+      commonjs2: 'vue',
+      amd: 'vue'
+    }
   },
   optimization: {
     splitChunks: {

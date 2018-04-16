@@ -1,4 +1,4 @@
-import Hello from '../packages/hello/hello'
+import Hello from 'packages/hello/hello'
 
 const install = (Vue) => {
     if (install.installed) return;

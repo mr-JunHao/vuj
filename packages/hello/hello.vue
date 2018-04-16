@@ -1,12 +1,14 @@
 <template>
   <div class="vj-hello">
+    <p class="vj-hello__messages">
       hello {{messages}}
+    </p>
   </div>
 </template>
 <script>
 export default {
   data() {
-      return {}
+    return {};
   },
   name: "vj-hello",
   props: {

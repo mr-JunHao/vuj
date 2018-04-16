@@ -8,7 +8,7 @@ module.exports = merge(webpackBaseConfig, {
   devtool: 'cheap-module-eval-source-map',
   mode: 'development',
   output: {
-    publicPath: '/',
+    publicPath: '/'
   },
   devServer: {
     contentBase: path.resolve(__dirname, "../src"),
