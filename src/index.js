@@ -5,9 +5,12 @@ const install = (Vue) => {
   Vue.component(Hello.name, Hello)
 }
 
+
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
+
+
 export {
   install,
   Hello
