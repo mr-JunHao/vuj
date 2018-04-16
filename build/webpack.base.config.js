@@ -1,48 +1,53 @@
 const path = require('path')
 const webpack = require('webpack')
 
+const utils = require('./utils');
+const packpage = require('../package')
+
 //plugins
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const rootPath = path.resolve(__dirname, '..');
 
-function resolve(dir) {
-  return path.resolve(__dirname, '..', dir)
+const isProduction = process.env.NODE_ENV === 'production';
+
+
+const config = {
+  extract: isProduction,
+  sourceMap: true
 }
 
 module.exports = {
-  context: resolve('examples'),
+  context: utils.resolve('docs'),
   entry: {
     vendor: ['vue', 'vue-router', 'axios'],
-    vj: './src/index.js'
+    [packpage.name]: './src/index.js'
   },
   output: {
     filename: '[name].js',
-    path: path.join(rootPath, 'dist'),
+    path: utils.resolve('dist'),
     publicPath: '/'
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src'),
-      'src': resolve('src'),
-      'packages': resolve('packages'),
-      'lib': resolve('lib'),
-      'components': resolve('examples/src/components')
+      'vue$': 'vue/dist/vue.js',
+      '@': utils.resolve('src'),
+      'src': utils.resolve('src'),
+      'packages': utils.resolve('packages'),
+      'lib': utils.resolve('lib'),
+      'docs': utils.resolve('docs/src/components')
     }
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.vue$/,
         use: {
           loader: 'vue-loader',
           options: {
-            loaders: {
-              css: ['vue-style-loader','css-loader','postcss-loader']
-            }
-            // extractCSS: true,
+            loaders: utils.cssLoaders({
+              sourceMap: config.sourceMap,
+              extract: config.extract
+            })
           }
         }
       },
@@ -54,8 +59,11 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
-        use: ['vue-style-loader','css-loader','postcss-loader']
+        test: /\.md$/,
+        loader: 'vue-markdown-loader',
+        options: {
+          preventExtract: true
+        }
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -77,17 +85,18 @@ module.exports = {
         options: {
           limit: 10000
         }
-      }
+      },
+      //test : /\.(css|less|sass|scss|stylus|styl|postcss)$/
+      ...utils.styleLoaders({
+        sourceMap: config.sourceMap,
+        extract: config.extract
+      })
     ]
   },
   plugins: [
-    new ExtractTextPlugin({
-      
-      filename: process.env.NODE_ENV === 'production' ? '[name]_[chunkhash:8].css' : '[name].css'
-    }),
     new HtmlWebpackPlugin({
-      chunks: ['vendor', 'vj'],
-      template: resolve('examples/src/index.tpl'),
+      chunks: ['vendor', packpage.name],
+      template: utils.resolve('docs/src/index.tpl'),
       filename: 'index.html',
       inject: true
     })

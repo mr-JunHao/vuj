@@ -1,13 +1,17 @@
 import Vue from 'vue'
 import App from './App'
-import vj from 'src/index'
+import vuj from 'src/index'
 import router from './router.config'
-import 'packages/styles/index.css'
-Vue.use(vj);
+import 'packages/styles/src/index.css'
+Vue.use(vuj);
 Vue.config.productionTip = false
 
 new Vue({
     el: '#app',
     router,
     render: h => h(App)
+    // template: '<App/>',
+    // components: {
+    //     App
+    // }
 })

@@ -1,6 +1,6 @@
 <template>
-  <div class="vj-hello">
-    <p class="vj-hello__messages">
+  <div class="vuj-hello">
+    <p class="vuj-hello__messages">
       hello {{messages}}
     </p>
   </div>
@@ -10,7 +10,7 @@ export default {
   data() {
     return {};
   },
-  name: "vj-hello",
+  name: "vuj-hello",
   props: {
     messages: String
   }

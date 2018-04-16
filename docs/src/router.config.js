@@ -14,6 +14,10 @@ export default new Router({
             path: '/hello',
             component: hello,
             name: 'hello'
+        },
+        {
+            path: '/docs/hello',
+            component: require('../markdown/hello.md')
         }
     ]
 })
