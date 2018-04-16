@@ -16,6 +16,14 @@ const config = {
   sourceMap: true
 }
 
+function wrap (render) {
+  return function() {
+    return render.apply(this, arguments)
+      .replace('<code v-pre class="', '<code class="hljs ')
+      .replace('<code>', '<code class="hljs">')
+  }
+}
+
 module.exports = {
   context: utils.resolve('docs'),
   entry: {
@@ -62,7 +70,15 @@ module.exports = {
         test: /\.md$/,
         loader: 'vue-markdown-loader',
         options: {
-          preventExtract: true
+          preventExtract: true,
+          preprocess: function(MarkdownIt, source) {
+            // 为table标签加上名为'table'的class
+            MarkdownIt.renderer.rules.table_open = function() {
+              return '<table class="table">'
+            };
+            MarkdownIt.renderer.rules.fence = wrap(MarkdownIt.renderer.rules.fence);
+            return source;
+          }
         }
       },
       {

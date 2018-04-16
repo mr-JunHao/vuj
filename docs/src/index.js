@@ -3,7 +3,8 @@ import App from './App'
 import vuj from 'src/index'
 import router from './router.config'
 import 'packages/styles/src/index.css'
-import 'highlight.js/styles/atom-one-dark.css'
+
+import '../markdown/css/md_docs.css'
 Vue.use(vuj);
 Vue.config.productionTip = false
 

@@ -1,16 +1,15 @@
-#hello 
+# hello
 **Hello 组件**
 
 ### 基本用法
-​```html
 
+# 11
+​```js 
 import {Hello} from 'vuj';
 export defalut {
-  
   components: {
     [Hello.name]: Hello
   }
-
 }
 
 ​```
