@@ -1,1 +1,3 @@
-@import './container.css';
+@reset-global pc;
+@import 'container.css';
+

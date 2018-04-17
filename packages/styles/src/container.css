@@ -1,10 +1,10 @@
 @import 'mixins/var.css';
 
-.is-vertical {
-    flex-direction: column;
-}
 .vuj-container{
     display: flex;
     box-sizing: border-box;
-    /* background: var(--mainColor); */
+    &.is-vertical {
+        flex-direction: column;
+    }
 }
+

@@ -13,7 +13,8 @@ const isProduction = process.env.NODE_ENV === 'production';
 
 const config = {
   extract: isProduction,
-  sourceMap: true
+  sourceMap: true,
+  usePostCSS: true
 }
 
 function wrap (render) {
@@ -23,6 +24,7 @@ function wrap (render) {
       .replace('<code>', '<code class="hljs">')
   }
 }
+
 
 module.exports = {
   context: utils.resolve('docs'),
@@ -39,7 +41,6 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.js',
-      // 'build': utils.resolve('build'),
       '@': utils.resolve('src'),
       'src': utils.resolve('src'),
       'packages': utils.resolve('packages'),
@@ -47,6 +48,7 @@ module.exports = {
       'docs': utils.resolve('docs/src/components')
     }
   },
+  
   module: {
     rules: [{
         test: /\.vue$/,
@@ -54,8 +56,7 @@ module.exports = {
           loader: 'vue-loader',
           options: {
             loaders: utils.cssLoaders({
-              sourceMap: config.sourceMap,
-              extract: config.extract
+              ...config
             })
           }
         }
@@ -105,11 +106,11 @@ module.exports = {
       },
       //test : /\.(css|less|sass|scss|stylus|styl|postcss)$/
       ...utils.styleLoaders({
-        sourceMap: config.sourceMap,
-        extract: config.extract
+        ...config
       })
     ]
   },
+
   plugins: [
     new HtmlWebpackPlugin({
       chunks: ['vendor', packpage.name],
