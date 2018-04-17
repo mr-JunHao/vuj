@@ -3,16 +3,16 @@
 
 ### 基本用法
 
-# 11
-​```js 
-import {Hello} from 'vuj';
-export defalut {
-  components: {
-    [Hello.name]: Hello
-  }
-}
 
-​```
+```javascript
+
+import Vue from 'vue'
+
+Vue.config.debug = true
+
+```
+
+
 
 ### Attributes
 | 参数      | 说明    | 类型      | 可选值       | 默认值   |

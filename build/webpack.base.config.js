@@ -73,9 +73,9 @@ module.exports = {
           preventExtract: true,
           preprocess: function(MarkdownIt, source) {
             // 为table标签加上名为'table'的class
-            MarkdownIt.renderer.rules.table_open = function() {
-              return '<table class="table">'
-            };
+            // MarkdownIt.renderer.rules.table_open = function() {
+            //   return '<table class="table">'
+            // };
             MarkdownIt.renderer.rules.fence = wrap(MarkdownIt.renderer.rules.fence);
             return source;
           }
