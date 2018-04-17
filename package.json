@@ -5,7 +5,7 @@
   "main": "lib/vuj.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --config ./build/webpack.dev.config.js",
+    "dev": "webpack-dev-server  --client-log-level none --config ./build/webpack.dev.config.js",
     "start": "npm run dev",
     "build": "cross-env NODE_ENV=production webpack --config ./build/webpack.prod.config.js",
     "build:vuj": "cross-env NODE_ENV=production webpack --config ./build/webpack.lib.config.js && npm run build",

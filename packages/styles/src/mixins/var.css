@@ -1,0 +1,25 @@
+:root {
+  /* 主题色-按钮 */
+  --color: #00a0e9;
+  /* 禁用色-按钮 */
+  --disableColor: #ccc;
+  /* 禁用色-按钮文字*/
+  --disableTextColor: #bbb;
+  /* 背景色、内容区域间隔色 */
+  --mainColor: #f8f8f8;
+  /* 提醒 */
+  --warnColor: #FB8C00;
+  /* 用于选择、填写栏底色 */
+  --optColor: #f3f3f3;
+  /* 用于线条及分割线颜色 */
+  --borderColor: #eeeeee;
+  /* 用于导航标题、类目标题、类目名称等 */
+  --titleColor: #333333;
+  /* 用于普通级段落信息、引导词 */
+  --guideColor: #666;
+  /* 用于辅助、次要的文字信息 */
+  --subTextColor: #999;
+  /* 待输入文字提示颜色 */
+  --placeholderColor: #ccc;
+  
+}

@@ -1,8 +1,0 @@
-@b vuj-hello {
-    color: #fff;
-    transform: scale(1);
-    display: flex;
-    @e messages {
-      background: #0067ED;
-    }
-  }

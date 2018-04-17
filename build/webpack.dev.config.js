@@ -20,7 +20,7 @@ module.exports = merge(webpackBaseConfig, {
     proxy: {
       
     },
-    clientLogLevel: "warning"
+    clientLogLevel: "none"
   },
   plugins: [
     new webpack.NamedModulesPlugin(),
