@@ -17,22 +17,11 @@ const plugins = process.env.NODE_ENV === 'production' ? {
   'postcss-css-reset': {},
   'postcss-import': {},
   'postcss-cssnext':{
-    browsers: ['ie > 8']
+    browsers: ['> 2%','not ie <= 8']
   },
   'precss': {}
 };
 
 module.exports = {
-  // parser: 'sugarss',
   plugins
-  // plugins: process.env.NODE_ENV === 'production' ? [
-  //   postcssImport(),
-  //   cssnext(),
-  //   precss(),
-  //   cssnano()
-  // ] : [
-  //   postcssImport(),
-  //   cssnext(),
-  //   precss()
-  // ]
 }
