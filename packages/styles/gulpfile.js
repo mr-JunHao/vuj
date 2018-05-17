@@ -3,7 +3,7 @@ const postcss = require('gulp-postcss')
 const package = require('../../package')
 
 gulp.task('compile', function () {
-  return gulp.src('./src/*.css')
+  return gulp.src('./src/*.scss')
     //使用postcss处理salad
     .pipe(postcss([
       require('postcss-css-reset')(),

@@ -1,11 +1,15 @@
 <template>
   <vuj-container direction="vertical">
-    <vuj-container>
-      <vuj-aside></vuj-aside>
-    </vuj-container>
     <vuj-header >
-      头部
+      vuj
     </vuj-header>
+    <vuj-container>
+      
+      <vuj-aside>
+
+      </vuj-aside>
+
+    </vuj-container>
     <vuj-footer>
 
     </vuj-footer>
@@ -13,6 +17,8 @@
 </template>
 <script>
 // dome
-export default {};
+export default {
+  
+};
 </script>
 

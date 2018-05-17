@@ -31,7 +31,7 @@ exports.cssLoaders = (options) => {
         options: Object.assign({}, loaderOptions, {
           sourceMap: options.sourceMap
         })
-      })
+      });
     }
 
     // Extract CSS when that option is specified

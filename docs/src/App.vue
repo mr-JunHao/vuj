@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <div class="markdown-body">
-      <router-view></router-view>
-    </div>
+    <router-view></router-view>
+    <!-- <div class="markdown-body">
+      
+    </div> -->
   </div>
 </template>
 <script>

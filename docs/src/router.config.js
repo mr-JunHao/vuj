@@ -8,19 +8,18 @@ import Container from '../pages/container'
 //docs
 import helloMD from '../markdown/hello.md'
 
-
 Vue.use(Router)
 export default new Router({
     routes: [
         {
             path: '/docs/hello',
             component: helloMD,
-            name: ''
+            name: 'hello'
         },
         {
-            path: '/container',
+            path: '/',
             component: Container,
-            name: ''  
+            name: 'container'  
         }
     ]
 })

@@ -1,6 +1,6 @@
-@import 'mixins/var.css';
+@import 'mixins/var.scss';
 
-.vuj-container{
+.#{$name}-container{
     display: flex;
     box-sizing: border-box;
     &.is-vertical {
