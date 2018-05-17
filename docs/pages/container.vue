@@ -3,12 +3,12 @@
     <vuj-header >
       vuj
     </vuj-header>
-    <vuj-container>
-      
-      <vuj-aside>
+    <vuj-container class="vuj-grid">
+      <div class="vuj-row">
+        <vuj-aside class="vuj-col-md-5">
 
-      </vuj-aside>
-
+        </vuj-aside>
+      </div>
     </vuj-container>
     <vuj-footer>
 

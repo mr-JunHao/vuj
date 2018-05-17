@@ -1,13 +1,57 @@
 @import 'mixins/var.scss';
 
-
-
-.#{name}-gird{
+.#{$name}-grid{
   padding-left: ($gutter / 2);
   padding-right: ($gutter / 2);
   margin-left: auto;
   margin-right: auto; 
 }
-.#{name}-row{
+.#{$name}-grid *{
+  box-sizing: border-box;
+  width: 100%;
+}
+.#{$name}-row{
+  margin-left: ($gutter / -2);
+  margin-right: ($gutter / -2);
+  width: 100%;
+  &::before,&::after{
+    display: table;
+    content: "";
+  }
+  &::after{
+    clear: both;
+  }
+}
 
+[class*=#{$name}-col]{
+  float:left;
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+}
+//vuj-col-xs-24
+@each $colname in $grid-breakpoints{
+  @for $i from 0 through 24 {
+    @if $i == 0{
+      .#{$name}-col-#{$colname}-#{$i}{
+        display: none;
+      }
+    }
+    .#{$name}-col-#{$colname}-#{$i}{
+      width: (1 / 24 * $i * 100) * 1%;
+    }
+    
+    .#{$name}-col-#{$colname}-offset-#{$i} {
+      margin-left: (1 / 24 * $i * 100) * 1%;
+    }
+
+    .#{$name}-col-#{$colname}-pull-#{$i} {
+      position: relative;
+      right: (1 / 24 * $i * 100) * 1%;
+    }
+
+    .#{$name}-col-#{$colname}-push-#{$i} {
+      position: relative;
+      left: (1 / 24 * $i * 100) * 1%;
+    }
+  }
 }

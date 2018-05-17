@@ -9,8 +9,7 @@
     name: 'vuj-aside',
     props: {
       width: {
-        type: String,
-        default: '300px'
+        type: String
       }
     }
   };
