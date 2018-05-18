@@ -45,7 +45,7 @@ module.exports = {
       'src': utils.resolve('src'),
       'packages': utils.resolve('packages'),
       'lib': utils.resolve('lib'),
-      'docs': utils.resolve('docs/src/components')
+      'docs': utils.resolve('docs')
     }
   },
   

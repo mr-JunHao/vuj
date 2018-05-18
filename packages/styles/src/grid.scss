@@ -5,15 +5,17 @@
   padding-right: ($gutter / 2);
   margin-left: auto;
   margin-right: auto; 
-}
-.#{$name}-grid *{
-  box-sizing: border-box;
   width: 100%;
+}
+.no-gutters,
+.no-gutters .#{$name}-col,
+.no-gutters [class*=#{$name}-col] {
+  padding-right: 0;
+  padding-left: 0;
 }
 .#{$name}-row{
   margin-left: ($gutter / -2);
   margin-right: ($gutter / -2);
-  width: 100%;
   &::before,&::after{
     display: table;
     content: "";
@@ -27,31 +29,54 @@
   float:left;
   padding-left: ($gutter / 2);
   padding-right: ($gutter / 2);
+  box-sizing: border-box;
 }
-//vuj-col-xs-24
-@each $colname in $grid-breakpoints{
-  @for $i from 0 through 24 {
-    @if $i == 0{
-      .#{$name}-col-#{$colname}-#{$i}{
-        display: none;
+@include colmns();
+
+@each $colname, $num in $grid-breakpoints{
+    @if $colname == 'xs'{
+      $break: (max-width:#{$num});
+      @include media-breakPoints($break){
+        @include colmns(0,24,$colname);
       }
+    }@else { 
+      @include colmns(0,24,$colname);
     }
-    .#{$name}-col-#{$colname}-#{$i}{
-      width: (1 / 24 * $i * 100) * 1%;
-    }
-    
-    .#{$name}-col-#{$colname}-offset-#{$i} {
-      margin-left: (1 / 24 * $i * 100) * 1%;
-    }
-
-    .#{$name}-col-#{$colname}-pull-#{$i} {
-      position: relative;
-      right: (1 / 24 * $i * 100) * 1%;
-    }
-
-    .#{$name}-col-#{$colname}-push-#{$i} {
-      position: relative;
-      left: (1 / 24 * $i * 100) * 1%;
-    }
-  }
 }
+
+//vuj-col-xs-24
+// @each $colname in $grid-breakpoints{
+//   @for $i from 0 through 24 {
+    
+//     @if $colname == 'xs'{
+//       .#{$name}-col-#{$i}{
+//         width: (1 / 24 * $i * 100) * 1%;
+//       }
+//       .#{$name}-col-offset-#{$i} {
+//         margin-left: (1 / 24 * $i * 100) * 1%;
+//       }
+//       .#{$name}-col-pull-#{$i} {
+//         position: relative;
+//         right: (1 / 24 * $i * 100) * 1%;
+//       }
+//       .#{$name}-col-push-#{$i} {
+//         position: relative;
+//         left: (1 / 24 * $i * 100) * 1%;
+//       }
+//     }
+//     .#{$name}-col-#{$colname}-#{$i}{
+//       width: (1 / 24 * $i * 100) * 1%;
+//     }
+//     .#{$name}-col-#{$colname}-offset-#{$i} {
+//       margin-left: (1 / 24 * $i * 100) * 1%;
+//     }
+//     .#{$name}-col-#{$colname}-pull-#{$i} {
+//       position: relative;
+//       right: (1 / 24 * $i * 100) * 1%;
+//     }
+//     .#{$name}-col-#{$colname}-push-#{$i} {
+//       position: relative;
+//       left: (1 / 24 * $i * 100) * 1%;
+//     }
+//   }
+// }

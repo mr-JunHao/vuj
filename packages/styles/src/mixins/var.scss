@@ -1,37 +1,85 @@
-:root {
-  /* 主题色-按钮 */
-  --color: #00a0e9;
-  /* 禁用色-按钮 */
-  --disableColor: #ccc;
-  /* 禁用色-按钮文字*/
-  --disableTextColor: #bbb;
-  /* 背景色、内容区域间隔色 */
-  --mainColor: #f8f8f8;
-  /* 提醒 */
-  --warnColor: #FB8C00;
-  /* 用于选择、填写栏底色 */
-  --optColor: #f3f3f3;
-  /* 用于线条及分割线颜色 */
-  --borderColor: #eeeeee;
-  /* 用于导航标题、类目标题、类目名称等 */
-  --titleColor: #333333;
-  /* 用于普通级段落信息、引导词 */
-  --guideColor: #666;
-  /* 用于辅助、次要的文字信息 */
-  --subTextColor: #999;
-  /* 待输入文字提示颜色 */
-  --placeholderColor: #ccc;
+/* 主题色-按钮 */
+$color: #00a0e9 !default;
+/* 禁用色-按钮 */
+$disableColor: #ccc !default;
+/* 禁用色-按钮文字*/
+$disableTextColor: #bbb !default;
+/* 背景色、内容区域间隔色 */
+$mainColor: #f8f8f8 !default;
+/* 提醒 */
+$warnColor: #FB8C00 !default;
+/* 用于选择、填写栏底色 */
+$optColor: #f3f3f3 !default;
+/* 用于线条及分割线颜色 */
+$borderColor: #eeeeee !default;
+/* 用于导航标题、类目标题、类目名称等 */
+$titleColor: #333333 !default;
+/* 用于普通级段落信息、引导词 */
+$guideColor: #666 !default;
+/* 用于辅助、次要的文字信息 */
+$subTextColor: #999 !default;
+/* 待输入文字提示颜色 */
+$placeholderColor: #ccc !default;
+
+
+$name: vuj !default;
+$gutter: 30px !default;
+$col-num: 24 !default;
+$grid-breakpoints: (
+  xs: 768,
+  sm: 768,
+  md: 992,
+  lg: 1200,
+  xl: 1920
+) !default;
+
+@mixin media-breakPoints($break){
+  @media screen and ($break){
+    @content;
+  }
+}
+@mixin colmns($start: 0,$end: 24,$colname: null){
+  @for $i from $start through $end {
+    @if $colname == null {
+      .#{$name}-col-#{$i}{
+        width: (1 / $col-num * $i * 100) * 1%;
+      }
+      .#{$name}-col-offset-#{$i} {
+        margin-left: (1 / $col-num * $i * 100) * 1%;
+      }
+      .#{$name}-col-pull-#{$i} {
+        position: relative;
+        right: (1 / $col-num * $i * 100) * 1%;
+      }
+      .#{$name}-col-push-#{$i} {
+        position: relative;
+        left: (1 / $col-num * $i * 100) * 1%;
+      }
+    }@else{
+      @if $i == 0{
+        .#{$name}-col-#{$colname}-#{$i},
+        .#{$name}-col-#{$i}{
+          display: none;
+        }
+      }
+      .#{$name}-col-#{$colname}-#{$i}{
+        width: (1 / $col-num * $i * 100) * 1%;
+      }
+      .#{$name}-col-#{$colname}-offset-#{$i} {
+        margin-left: (1 / $col-num * $i * 100) * 1%;
+      }
+      .#{$name}-col-#{$colname}-pull-#{$i} {
+        position: relative;
+        right: (1 / $col-num * $i * 100) * 1%;
+      }
+      .#{$name}-col-#{$colname}-push-#{$i} {
+        position: relative;
+        left: (1 / $col-num * $i * 100) * 1%;
+      }
+    }
+  }
 }
 
-$name: vuj;
-$gutter: 30px;
-$col-num: 24;
-$grid-breakpoints: (
-  xs,
-  sm,
-  md,
-  lg,
-  xl
-);
+
 
 

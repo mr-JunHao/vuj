@@ -5,17 +5,10 @@ import Router from 'vue-router'
 // import index from '../pages/index'
 
 import Container from '../pages/container'
-//docs
-import helloMD from '../markdown/hello.md'
 
 Vue.use(Router)
 export default new Router({
     routes: [
-        {
-            path: '/docs/hello',
-            component: helloMD,
-            name: 'hello'
-        },
         {
             path: '/',
             component: Container,
