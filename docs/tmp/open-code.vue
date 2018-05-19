@@ -55,20 +55,20 @@ $theme-color: #00a0e9;
     display: block;
     height: 30px;
     background: linear-gradient(
-      rgba(255, 255, 255, 0.1),
-      rgba(255, 255, 255, 1)
+      rgba(0, 160, 233, 0),
+      rgba(0, 0, 0, 1)
     );
     cursor: pointer;
     &::before {
       position: absolute;
       bottom: 10px;
       left: 50%;
-      margin-left: -5px;
-      width: 10px;
-      height: 10px;
+      margin-left: -6px;
+      width: 12px;
+      height: 12px;
       content: "";
       display: block;
-      border-width: 5px;
+      border-width: 6px;
       border-style: solid;
       border-color: $theme-color transparent transparent transparent;
       box-sizing: border-box;

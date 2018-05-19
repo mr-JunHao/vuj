@@ -23,10 +23,30 @@ html {
   overflow-y: auto;
   box-sizing: border-box;
   padding-bottom: 40px;
+  pre{
+    background: #282c34;
+  }
+  h1,h2,h3,h4{
+    font-weight: normal;
+    border-bottom: none;
+  }
+  table{
+    text-align: center;
+    display: table;
+    th{
+       font-weight: normal;
+    }
+    tr{
+      border-top: 1px solid #eee;
+    }
+    th,td{
+      border: none;
+      padding: 15px;
+      max-width: 250px;
+    }
+  }
 }
-.markdown-body table{
-  text-align: center;
-}
+
 .vuj-grid .vuj-row{
   margin:10px 0;
 }

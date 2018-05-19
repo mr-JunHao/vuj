@@ -1,0 +1,53 @@
+@import 'mixins/var.scss';
+
+.#{$name}-menu{
+  
+}
+.#{$name}-menu-item{
+  position: relative;
+  height: 56px;
+  line-height: 56px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 16px;
+  color: $guideColor;
+  &.is-curr{
+    color: $color;
+  }
+}
+.#{$name}-sub-menu{
+  position: relative;
+  &__title{
+    height: 56px;
+    line-height: 56px;
+    font-size: 16px;
+    color: $guideColor;
+    padding: 0 20px;
+    list-style: none;
+    cursor: pointer;
+    position: relative;
+    transition: border-color .3s,background-color .3s,color .3s;
+    box-sizing: border-box;
+    white-space: nowrap;
+    * {
+      vertical-align: middle;
+    }
+  }
+  &__icon-arrow {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    margin-top: -7px;
+    transition: transform .3s;
+    font-size: 16px;
+  }
+  .#{$name}-menu-item{
+    height: 50px;
+    line-height: 50px;
+    padding: 0 45px;
+    min-width: 200px;
+  }
+}
+

@@ -3,7 +3,11 @@
     <doc-hd></doc-hd>
     <vuj-container>
       <vuj-aside width="350px">
-        <div class="color-block">aside</div>
+        <vuj-menu>
+          <vuj-menu-item>
+            22
+          </vuj-menu-item>
+        </vuj-menu>
       </vuj-aside>
       <div class="markdown-body">
         <div class="vuj-grid">
@@ -21,6 +25,9 @@
 <script>
 import docHd from "docs/tmp/hd";
 import grid from "docs/markdown/grid.md";
+import menu from "packages/menu";
+import menuItem from "packages/menu-item";
+import subMenu from "packages/sub-menu";
 export default {
   data() {
     return {
@@ -29,13 +36,15 @@ export default {
   },
   components: {
     [docHd.name]: docHd,
-    [grid.name]: grid
+    [grid.name]: grid,
+    [menu.name]: menu,
+    [menuItem.name]: menuItem,
+    [subMenu.name]: subMenu
   }
 };
 </script>
 <style lang="scss" scoped>
-
-.overhide{
+.overhide {
   height: 100%;
 }
 </style>
