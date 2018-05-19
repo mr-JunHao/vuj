@@ -24,6 +24,9 @@ html {
   box-sizing: border-box;
   padding-bottom: 40px;
 }
+.markdown-body table{
+  text-align: center;
+}
 .vuj-grid .vuj-row{
   margin:10px 0;
 }
@@ -39,7 +42,7 @@ html {
 }
 .color-block {
   background-color: $theme-color;
-  border-radius: 6px;
+  border-radius: 3px;
   min-height: 30px;
   color: #fff;
   text-align: center;

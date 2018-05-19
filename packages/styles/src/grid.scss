@@ -44,39 +44,19 @@
     }
 }
 
-//vuj-col-xs-24
-// @each $colname in $grid-breakpoints{
-//   @for $i from 0 through 24 {
-    
-//     @if $colname == 'xs'{
-//       .#{$name}-col-#{$i}{
-//         width: (1 / 24 * $i * 100) * 1%;
-//       }
-//       .#{$name}-col-offset-#{$i} {
-//         margin-left: (1 / 24 * $i * 100) * 1%;
-//       }
-//       .#{$name}-col-pull-#{$i} {
-//         position: relative;
-//         right: (1 / 24 * $i * 100) * 1%;
-//       }
-//       .#{$name}-col-push-#{$i} {
-//         position: relative;
-//         left: (1 / 24 * $i * 100) * 1%;
-//       }
-//     }
-//     .#{$name}-col-#{$colname}-#{$i}{
-//       width: (1 / 24 * $i * 100) * 1%;
-//     }
-//     .#{$name}-col-#{$colname}-offset-#{$i} {
-//       margin-left: (1 / 24 * $i * 100) * 1%;
-//     }
-//     .#{$name}-col-#{$colname}-pull-#{$i} {
-//       position: relative;
-//       right: (1 / 24 * $i * 100) * 1%;
-//     }
-//     .#{$name}-col-#{$colname}-push-#{$i} {
-//       position: relative;
-//       left: (1 / 24 * $i * 100) * 1%;
-//     }
-//   }
-// }
+[mode=flex]{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@each $mode in $grid-align-items{
+  [align-items=#{$mode}]{
+    align-items: $mode;
+  }
+}
+
+@each $mode in $grid-justify-content{
+  [justify-content=#{$mode}]{
+    justify-content: $mode;
+  }
+}

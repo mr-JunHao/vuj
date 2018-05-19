@@ -33,6 +33,21 @@ $grid-breakpoints: (
   xl: 1920
 ) !default;
 
+$grid-align-items: (
+  flex-start,
+  flex-end,
+  center,
+  baseline,
+  stretch
+) !default;
+$grid-justify-content: (
+  flex-start,
+  flex-end,
+  center,
+  space-between,
+  space-around
+) !default;
+
 @mixin media-breakPoints($break){
   @media screen and ($break){
     @content;
@@ -42,6 +57,7 @@ $grid-breakpoints: (
   @for $i from $start through $end {
     @if $colname == null {
       .#{$name}-col-#{$i}{
+        flex: 0 0 (1 / $col-num * $i * 100) * 1%;
         width: (1 / $col-num * $i * 100) * 1%;
       }
       .#{$name}-col-offset-#{$i} {
@@ -63,6 +79,7 @@ $grid-breakpoints: (
         }
       }
       .#{$name}-col-#{$colname}-#{$i}{
+        flex: 0 0 (1 / $col-num * $i * 100) * 1%;
         width: (1 / $col-num * $i * 100) * 1%;
       }
       .#{$name}-col-#{$colname}-offset-#{$i} {
@@ -79,6 +96,11 @@ $grid-breakpoints: (
     }
   }
 }
+
+
+
+
+
 
 
 
