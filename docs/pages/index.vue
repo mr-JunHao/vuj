@@ -4,8 +4,10 @@
     <vuj-container>
       <vuj-aside width="350px">
         <vuj-menu>
-          <vuj-menu-item>
-            22
+          <vuj-menu-item :group="true">
+            <template slot="title">layout</template>
+            <vuj-menu-item>grid</vuj-menu-item>
+            <vuj-menu-item>grid</vuj-menu-item>
           </vuj-menu-item>
         </vuj-menu>
       </vuj-aside>

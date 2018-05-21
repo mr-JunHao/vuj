@@ -1,10 +1,10 @@
 <template>
-  <div class="vuj-menu" 
+  <ul class="vuj-menu" 
     :class="{
       'vuj-menu--horizontal': mode === 'horizontal'
     }">
     <slot></slot>
-  </div>
+  </ul>
 </template>
 <script>
 export default {
