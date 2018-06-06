@@ -4,9 +4,9 @@
     <vuj-container>
       <vuj-aside width="350px">
         <vuj-menu>
-          <vuj-menu-item :group="true">
+          <vuj-menu-item :item-index="0" :group="true">
             <template slot="title">layout</template>
-            <vuj-menu-item>grid</vuj-menu-item>
+            <vuj-menu-item><span>grid</span></vuj-menu-item>
             <vuj-menu-item>grid</vuj-menu-item>
           </vuj-menu-item>
         </vuj-menu>
